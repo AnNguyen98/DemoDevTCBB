@@ -30,4 +30,4 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: Send greeting
-      run: echo -n ${{ secrets.JSON }} | base64 -D
+      run: echo ${{ secrets.JSON }}
