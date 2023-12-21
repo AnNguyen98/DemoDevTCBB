@@ -28,6 +28,9 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Runs a single command using the runners shell
-    - name: Send greeting
-      run: echo ${{ secrets.JSON }}
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+      # Runs a single command using the runners shell
+      - name: Send greeting
+        run: echo "${{ secrets.JSON }}"
