@@ -22,3 +22,6 @@ jobs:
       # Runs a single command using the runners shell
       - name: Send greeting
         run: echo "${{ secrets.JSON }}" | base64 --decode >> .env/development.json
+      - name: AAAAA
+        run: cat .env/development.json | jq
+
