@@ -11,7 +11,7 @@ jobs:
   # This workflow contains a single job called "greet"
   greet:
     # The type of runner that the job will run on
-    runs-on: macos-13
+    runs-on: ubuntu-latest
     environment: development
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -21,4 +21,4 @@ jobs:
           ref: ${{ github.head_ref || github.ref_name }}
       # Runs a single command using the runners shell
       - name: Send greeting
-        run: echo -n "${{ secrets.JSON }}" | base64 -D
+        run: echo "${{ secrets.JSON }}" | base64 --decode
