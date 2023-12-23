@@ -21,7 +21,9 @@ jobs:
           ref: ${{ github.head_ref || github.ref_name }}
       # Runs a single command using the runners shell
       - name: Send greeting
-        run: echo "${{ secrets.JSON }}" | base64 --decode >> .env/development.json
+        run: | 
+          export FILE=".env/development.json"
+          echo "${{ secrets.JSON }}" | base64 --decode >> ${{ env.FILE }}
       - name: AAAAA
-        run: cat .env/development.json | jq
+        run: cat ${{ env.FILE }} | jq
 
