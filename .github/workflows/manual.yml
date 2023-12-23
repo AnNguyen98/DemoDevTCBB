@@ -25,7 +25,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Send greeting
         run: | 
-          echo pwd
+          pwd
           echo "${{ secrets.JSON }}" | base64 --decode >> ${{ env.FILE_PATH }}
       - name: AAAAA
         run: cat ${{ env.FILE_PATH }} | jq
