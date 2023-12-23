@@ -6,6 +6,9 @@ name: Manual workflow
 # or API.
 on: push
 
+env:
+  FILE_PATH: '.env/development.json 
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "greet"
@@ -22,8 +25,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Send greeting
         run: | 
-          export FILE=".env/development.json"
-          echo "${{ secrets.JSON }}" | base64 --decode >> ${{ env.FILE }}
+          echo "${{ secrets.JSON }}" | base64 --decode >> ${{ env.FILE_PATH }}
       - name: AAAAA
-        run: cat ${{ env.FILE }} | jq
+        run: cat ${{ env.FILE_PATH }} | jq
 
